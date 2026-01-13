@@ -25,7 +25,7 @@ export const ModalRenderer = () => {
                   {/* 단순 텍스트 모달을 위한 기본 버튼 */}
                   {typeof modal.content === 'string' && (
                       <div className="footer">
-                        <button onClick={() => close(modal.id, false)}>취소</button>
+                        <button onClick={() => close(modal.id, false)}>닫기</button>
                         <button onClick={() => close(modal.id, true)}>확인</button>
                       </div>
                   )}
