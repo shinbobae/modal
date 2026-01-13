@@ -54,24 +54,24 @@ export default function Home() {
     <div>
       <main>
         <h1>모달을 이렇게 저렇게 띄우고 싶어요</h1>
-        <button onClick={openModal}>페이지 내에서 띄우기</button>
-        <button onClick={openContentModal}>페이지 내에서 컴포넌트로 주입한 컨텐츠 띄우기</button>
-        <button onClick={callApi}>순수 로직 파일에서 띄우기</button>
         <div style={{ display: 'flex', gap: '2rem' }}>
           <div>
             <h4>페이지 내 모달 호출</h4>
+            <button onClick={openModal}>페이지 내에서 띄우기</button>
             <p>id: {id}</p>
             <p>title: {title}</p>
             <p>userId: {userId}</p>
           </div>
           <div>
             <h4>UI 모달 컴포넌트 주입</h4>
+            <button onClick={openContentModal}>페이지 내에서 컴포넌트로 주입한 컨텐츠 띄우기</button>
             <p>contentId: {modalData?.id}</p>
             <p>contentTitle: {modalData?.title}</p>
             <p>contentUserId: {modalData?.userId}</p>
           </div>
           <div>
             <h4>api 순수로직 응답 with zustand store</h4>
+            <button onClick={callApi}>순수 로직 파일에서 띄우기</button>
             <p>apiId: {apiId}</p>
             <p>apiTitle: {apiTitle}</p>
             <p>apiUserId: {apiUserId}</p>
@@ -95,6 +95,7 @@ const ModalContent = ({ resolve }: { resolve: (val: ModalData) => void }) => {
         <div>id: <input type="text" value={id} onChange={(e) => setId(parseInt(e.target.value))} /></div>
         <div>title: <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /></div>
         <div>userId: <input type="text" value={userId} onChange={(e) => setUserId(parseInt(e.target.value))} /></div>
+        <button onClick={() => resolve(null)}>닫기</button>
         <button onClick={sendData}>데이터 전송</button>
       </div>
   )
