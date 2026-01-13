@@ -90,13 +90,18 @@ const ModalContent = ({ resolve }: { resolve: (val: ModalData) => void }) => {
     const data = {id, title, userId};
     resolve(data);
   };
+  const parseValueToNumber = (value: string | number) => {
+    if (value === '' || isNaN(Number(value))) return 0;
+    return Number(value)
+  }
+
   return (
-      <div>
-        <div>id: <input type="text" value={id} onChange={(e) => setId(parseInt(e.target.value))} /></div>
-        <div>title: <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /></div>
-        <div>userId: <input type="text" value={userId} onChange={(e) => setUserId(parseInt(e.target.value))} /></div>
-        <button onClick={() => resolve(null)}>닫기</button>
-        <button onClick={sendData}>데이터 전송</button>
-      </div>
+    <div>
+      <div>id: <input type="text" value={id} onChange={(e) => setId(parseValueToNumber(e.target.value))} /></div>
+      <div>title: <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /></div>
+      <div>userId: <input type="text" value={userId} onChange={(e) => setUserId(parseValueToNumber(e.target.value))} /></div>
+      <button onClick={() => resolve(null)}>닫기</button>
+      <button onClick={sendData}>데이터 전송</button>
+    </div>
   )
 }
