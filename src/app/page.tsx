@@ -1,7 +1,7 @@
 "use client"
 import {useModalStore} from "./useModalStore";
 import {callApi, ResponseType} from "./api";
-import {useCallback, useState} from "react";
+import {useState} from "react";
 import {useApiStore} from "./apiStore";
 
 interface ModalData {
